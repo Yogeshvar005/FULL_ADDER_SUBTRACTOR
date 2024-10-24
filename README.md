@@ -36,85 +36,61 @@ Diff = A ⊕ B ⊕ Bin
 
 Borrow out = A'Bin + A'B + BBin
 
-**Truthtable**
-
-**FULL ADDER:**
-
-![DE E-4 truthtable](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/7116d2bf-8e90-4e96-bfd5-d62af11a317a)
-
-**FULL SUBTRACTOR:**
-
-![DE E-4 subtractor truth table](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/33d8ba16-9169-40b0-8696-3bb8e5c3a0b7)
-
 
 **Procedure**
-
-Write the detailed procedure here
-
-~~~
-**Full Adder:**
+## Full Adder:
 1.Open Quartus II and create a new project.
 2.Use schematic design entry to draw the full adder circuit. 
 3.The circuit consists of XOR, AND, and OR gates. 
 4.Compile the design, verify its functionality through simulation. 
 5.Implement the design on the target device and program it.
 
-**Full Subtractor:** 
+## Full Subtractor: 
 1.Follow the same steps as for the full adder. 
 2.Draw the full subtractor circuit using schematic design. 
 3.The circuit includes XOR, AND, OR gates to perform subtraction. 
 4.Compile, simulate, implement, and program the design similarly to the full adder.
-~~~
 
 **Program:**
-
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-
-~~~
-
-## Full_adder
-module fulladd_top(a,b,cin,sum,carry);
-input a,b,cin;
-output sum,carry;
-wire w1,w2,w3,w4;       
-xor(w1,a,b);
-xor(sum,w1,cin);        
-
-and(w2,a,b);
-and(w3,b,cin);
-and(w4,cin,a);
-
-or(carry,w2,w3,w4);
-endmodule 
-
-## Full_subtractor
-module fullsub_top(a,b,Bin,BO,DIFF);
-input a,b,Bin;
-output BO,DIFF;
-assign DIFF = a ^ b ^ Bin;
-  assign BO = (a & b) | ((a ^ b) & Bin);
-endmodule
-
-
-Developed by: YOGESHVAR M
-RegisterNumber: 212222230180
-~~~
-
+```/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+Developed by: Sana Fathima H
+RegisterNumber: 212223240145
 */
-
+```
+```## Full_adder
+module re(a,b,c,sum,carry);
+input a,b,c;
+output sum,carry;
+assign sum = (a^b^c);
+assign carry = ((a&b)|(b&c)|(c&a));
+endmodule
+```
+## Full_subtractor
+```
+module fs(a,b,bin,diff,borr);
+input a,b,bin;
+output diff,borr;
+assign diff=(a^b^bin);
+assign borr=((~a&b)|(b&bin)|(bin&(~a)));
+endmodule
+```
 **RTL Schematic**
+FULL ADDER
+![image](https://github.com/user-attachments/assets/5561d6ce-96ea-4635-9a2f-d4bb4e0ad68d)
+FULL SUBTRACTOR
+![image](https://github.com/user-attachments/assets/bd8f1ee1-cf49-4869-8266-c6545c35b4a8)
 
-![image](https://github.com/Augustine0306/FULL_ADDER_SUBTRACTOR/assets/119404460/efdbdc46-6983-4157-847b-e57db575b730)
+
 
 **Output Timing Waveform**
+FULL ADDER
 
-**FULL ADDER**
+![image](https://github.com/user-attachments/assets/7ee23743-76ed-4ebd-a80e-07dfafcdadef)
 
-![image](https://github.com/Augustine0306/FULL_ADDER_SUBTRACTOR/assets/119404460/4161be73-7662-4d79-8d5e-475134ce8bfc)
 
-**FULL SUBTRACTOR**
+**FULL_SUBTRACTOR**
+![image](https://github.com/user-attachments/assets/4804fa2f-0b57-4234-9a09-e1d9ba886877)
 
-![image](https://github.com/Augustine0306/FULL_ADDER_SUBTRACTOR/assets/119404460/17be286c-4ef3-4130-9da5-9527226aa766)
 
 
 **Result:**
